@@ -15,7 +15,11 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 public class Registro0007 extends RegistroBase {
     
-    // Campos serão adicionados conforme especificação
+    // Campo 02: Código da instituição responsável pela administração do cadastro
+    private String codEntRef;
+    
+    // Campo 03: Código cadastral da pessoa jurídica na instituição
+    private String codInscr;
     
     @Override
     public String getCodigo() {
@@ -24,11 +28,14 @@ public class Registro0007 extends RegistroBase {
     
     @Override
     protected void adicionarCampos(List<String> campos) {
-        // Implementação será adicionada após definição dos campos
+        campos.add(valorOuVazio(codEntRef));
+        campos.add(valorOuVazio(codInscr));
     }
     
     @Override
     public void validar() {
-        // Validações serão adicionadas após definição dos campos
+        if (codEntRef == null || codEntRef.trim().isEmpty()) {
+            throw new IllegalStateException("Código da instituição (COD_ENT_REF) é obrigatório");
+        }
     }
 }

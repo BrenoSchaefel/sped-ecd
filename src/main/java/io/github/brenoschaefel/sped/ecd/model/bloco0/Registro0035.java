@@ -15,7 +15,11 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 public class Registro0035 extends RegistroBase {
     
-    // Campos serão adicionados conforme especificação
+    // Campo 02: CNPJ da SCP
+    private String codScp;
+    
+    // Campo 03: Nome da SCP
+    private String nomeScp;
     
     @Override
     public String getCodigo() {
@@ -24,11 +28,17 @@ public class Registro0035 extends RegistroBase {
     
     @Override
     protected void adicionarCampos(List<String> campos) {
-        // Implementação será adicionada após definição dos campos
+        campos.add(valorOuVazio(codScp));
+        campos.add(valorOuVazio(nomeScp));
     }
     
     @Override
     public void validar() {
-        // Validações serão adicionadas após definição dos campos
+        if (codScp == null || codScp.trim().isEmpty()) {
+            throw new IllegalStateException("CNPJ da SCP (COD_SCP) é obrigatório");
+        }
+        if (codScp.length() != 14) {
+            throw new IllegalStateException("CNPJ da SCP deve ter 14 dígitos");
+        }
     }
 }

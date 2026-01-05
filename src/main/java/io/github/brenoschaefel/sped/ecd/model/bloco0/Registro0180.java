@@ -15,7 +15,14 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 public class Registro0180 extends RegistroBase {
     
-    // Campos serão adicionados conforme especificação
+    // Campo 02: Código do relacionamento (Tabela SPED)
+    private String codRel;
+    
+    // Campo 03: Data do início do relacionamento
+    private java.time.LocalDate dtIniRel;
+    
+    // Campo 04: Data do término do relacionamento
+    private java.time.LocalDate dtFinRel;
     
     @Override
     public String getCodigo() {
@@ -24,11 +31,21 @@ public class Registro0180 extends RegistroBase {
     
     @Override
     protected void adicionarCampos(List<String> campos) {
-        // Implementação será adicionada após definição dos campos
+        campos.add(valorOuVazio(codRel));
+        campos.add(formatarData(dtIniRel));
+        campos.add(formatarData(dtFinRel));
     }
     
     @Override
     public void validar() {
-        // Validações serão adicionadas após definição dos campos
+        if (codRel == null || codRel.trim().isEmpty()) {
+            throw new IllegalStateException("Código do relacionamento (COD_REL) é obrigatório");
+        }
+        if (dtIniRel == null) {
+            throw new IllegalStateException("Data de início do relacionamento (DT_INI_REL) é obrigatória");
+        }
+        if (dtFinRel != null && dtIniRel.isAfter(dtFinRel)) {
+            throw new IllegalStateException("Data inicial não pode ser superior à data final");
+        }
     }
 }

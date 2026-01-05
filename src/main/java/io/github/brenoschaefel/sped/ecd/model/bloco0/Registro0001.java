@@ -15,7 +15,10 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 public class Registro0001 extends RegistroBase {
     
-    // Campos serão adicionados conforme especificação
+    // Campo 02: Indicador de movimento
+    // 0 - Bloco com dados informados
+    // 1 - Bloco sem dados informados
+    private String indDad;
     
     @Override
     public String getCodigo() {
@@ -24,11 +27,16 @@ public class Registro0001 extends RegistroBase {
     
     @Override
     protected void adicionarCampos(List<String> campos) {
-        // Implementação será adicionada após definição dos campos
+        campos.add(valorOuVazio(indDad));
     }
     
     @Override
     public void validar() {
-        // Validações serão adicionadas após definição dos campos
+        if (indDad == null || indDad.trim().isEmpty()) {
+            throw new IllegalStateException("Indicador de movimento (IND_DAD) é obrigatório");
+        }
+        if (!indDad.equals("0") && !indDad.equals("1")) {
+            throw new IllegalStateException("IND_DAD deve ser 0 ou 1");
+        }
     }
 }
