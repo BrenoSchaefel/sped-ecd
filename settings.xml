@@ -1,0 +1,23 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <servers>
+    <server>
+      <!-- ID deve corresponder o id no distributionManagement do pom.xml -->
+      <id>central</id>
+      <username>5Q3JNE</username>
+      <password>xKzjiNe6GjhAdtRwubi9QKqxdr9EqWLt5</password>
+    </server>
+  </servers>
+
+  <profiles>
+    <profile>
+        <id>gpg</id>
+        <properties>
+            <gpg.keyname>77ED1442CA3F9719</gpg.keyname>
+        </properties>
+    </profile>
+</profiles>
+</settings>
