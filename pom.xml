@@ -8,7 +8,7 @@
   <packaging>jar</packaging>
 
   <name>sped-ecd</name>
-  <description>Library for processing SPED ECD files</description>
+  <description>Biblioteca para processamento de arquivos SPED ECD</description>
   <url>https://github.com/BrenoSchaefel/sped-ecd</url>
 
   <properties>
@@ -81,8 +81,8 @@
 
   <developers>
     <developer>
-      <name>Breno Schaefel</name>
-      <email>breno.schaefel@gmail.com</email>
+      <name>Breno Luiz Schaefel</name>
+      <email>contato@brenoluiz.dev</email>
       <organization>BrenoSchaefel</organization>
       <organizationUrl>https://github.com/BrenoSchaefel</organizationUrl>
     </developer>
